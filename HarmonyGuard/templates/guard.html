@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>HarmonyGaurd</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <!-- <link rel="stylesheet" href=""> -->
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/gaurdcss.css')}}">
+  <link rel="shortcut icon" href="{{ url_for('static',filename='images/favicon.png')}}" type="image/x-icon">
+
+</head>
+
+<body>
+  
+  <div class="Background_body">
+    <h2>HarmonyGuard</h2>
+    
+    <form id="commentForm" action="{{ url_for('guard')}}" method="post">
+        <div class="input-group">
+            <label class="input-group__label" for="myInput">Write Comment</label>
+            <input type="text" id="commentInput" name="coInput" class="input-group__input" value="{{ processed_value or 'Comment' }}"/>
+            
+            <!-- Button to submit the form -->
+            <button type="submit">Send to Backend</button>
+        </div>
+    </form>
+
+    <!-- Display the message below the input box -->
+    {% if message %}
+      <p>{{ message }}</p>
+    {% endif %}
+
+</div>
+
+
+
+</body>
+
+</html>
